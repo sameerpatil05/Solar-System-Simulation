@@ -1,0 +1,213 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    overflow: hidden; /* Prevents scrollbars */
+}
+
+#bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+    z-index: -1;
+}
+
+/* --- Banners and UI Containers --- */
+.top-right-banner {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 20;
+    color: #ffffff;
+}
+
+.top-right-banner .logo {
+    height: 40px;
+    width: auto;
+}
+
+.top-right-banner h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.ui-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: calc(100vh - 40px);
+    z-index: 10;
+}
+
+.title-card {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 15px 25px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    max-width: 350px;
+}
+
+.title-card h1 {
+    margin: 0 0 5px 0;
+    font-size: 1.5rem;
+}
+
+.title-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #a0a0a0;
+}
+
+/* --- Controls Panel --- */
+#controls-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    overflow-y: auto;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.control-group label {
+    font-weight: 500;
+    font-size: 1rem;
+    color: #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.control-group span {
+    font-weight: 400;
+    color: #a0a0a0;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #333;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #333;
+}
+
+#pause-button {
+    padding: 10px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#pause-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- Mobile Toggle Button --- */
+#mobile-controls-toggle {
+    display: none; /* Hidden on desktop */
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+/* =================================== */
+/* R E S P O N S I V E N E S S    */
+/* =================================== */
+@media (max-width: 600px) {
+    .top-right-banner {
+        flex-direction: column;
+        align-items: flex-end;
+        text-align: right;
+        gap: 5px;
+    }
+
+    .top-right-banner .logo {
+        height: 30px;
+    }
+
+    .top-right-banner h3 {
+        font-size: 0.9rem;
+        line-height: 1.2;
+    }
+    
+    .ui-container {
+        top: 95px; /* Push UI container down to not overlap with banner */
+        left: 10px;
+        right: 10px;
+        max-height: calc(100vh - 105px);
+    }
+    
+    .title-card {
+        max-width: none;
+    }
+
+    /* Show the toggle button on mobile */
+    #mobile-controls-toggle {
+        display: block;
+    }
+
+    /* Hide the controls panel by default on mobile */
+    #controls-container {
+        display: none;
+    }
+
+    /* Use this class to show the panel when toggled by JS */
+    #controls-container.visible {
+        display: flex;
+    }
+}

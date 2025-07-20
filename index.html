@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Solar System - Frontend Assignment</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="top-right-banner">
+        <img src="small-logo.png" alt="EmptyCup 3D" class="logo">
+        <h3>EmptyCup<br>Internship Assignment<br><font face="times new roman" color="aqua">By- Samir Patil</font></h3>
+    </div>
+
+    <canvas id="bg"></canvas>
+
+    <div class="ui-container">
+        <div class="title-card">
+            <h1>Solar System Simulation</h1>
+            <p>Use the controls to adjust planet speeds. Drag to orbit and scroll to zoom.</p>
+            <button id="mobile-controls-toggle">Show Controls</button>
+        </div>
+        
+        <div id="controls-container"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+
+    <script src="main.js" defer></script>
+</body>
+</html>
